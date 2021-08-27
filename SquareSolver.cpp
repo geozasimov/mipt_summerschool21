@@ -1,24 +1,4 @@
-///@file main.cpp
-#include <cstdio>
-#include <cmath>
-#include <cassert>
-
-
- 
-const double eps = 1e-6;
-const int SS_INF_ROOTS = -1;
-const int number_good_coefficient = 3;
-const int number_inf_roots = -1;
-const int number_no_roots = 0;
-const int number_1_root = 1;
-const int number_2_roots = 2;
-
- 
-int SquareSolver(double a, double b, double c, double *x1, double *x2);
-int IsEqual_zero(double number_check);
-int IsEqual(double a_number_check, double b_number_check);
-int test();
-int test_type_check(int a, int b, int c, int nRoots, double x1_right, double x2_right, double *x1, double *x2);
+#include "main.hpp"
 
 
 int main()
@@ -31,7 +11,7 @@ int main()
         double a = NAN, b = NAN, c = NAN;
         int nCorrect = 0;
         nCorrect = scanf("%lg %lg %lg", &a, &b, &c);
-        if (nCorrect == number_good_coefficient)
+        if (nCorrect == NUMBER_GOOD_COEFF)
         {
                 
             double x1 = NAN, x2 = NAN;
@@ -39,18 +19,18 @@ int main()
             
             switch(nRoots)
             {
-                case 0: printf("No roots\n");
+                case NUMBER_NO_ROOTS: printf("No roots\n");
                         break;
                         
-                case 1: printf("Number of roots is 1\n");
+                case NUMBER_1_ROOT: printf("Number of roots is 1\n");
                         printf(" %lg \n", x1);
                         break;
                         
-                case 2: printf("Number of roots is 2\n");
+                case NUMBER_2_ROOTS: printf("Number of roots is 2\n");
                         printf(" %lg %lg \n", x1, x2);
                         break;
                         
-                case SS_INF_ROOTS: printf("Any number\n");
+                case NUMBER_INF_ROOTS: printf("Any number\n");
                         break;
                         
                 default: printf ("main():ERROR: nRoots = %d\n", nRoots);
@@ -69,22 +49,6 @@ int main()
     return 0;
 }
 
-//------------------------------------------------
-//! Solves a square equation ax2 + bx + c = 0
-//!
-//! @param [in] a a-coefficient
-//! @param [in] b b-coefficient
-//! @param [in] c c-coefficient
-//! @param [out] x1 Pointer to the 1st root
-//! @param [out] x2 Pointer to the 2nd root
-//!
-//! @return Number of roots
-//!
-//! @note In case of infinite number of roots,
-//! returns SS_INF_ROOTS.
-//! Function changes x1 and x2, if Number of roots is not zero.
-//------------------------------------------------
-
 int SquareSolver(double a, double b, double c, double *x1, double *x2)
 {
     assert (std :: isfinite (a));
@@ -101,7 +65,7 @@ int SquareSolver(double a, double b, double c, double *x1, double *x2)
         {
             if (IsEqual_zero(c))
             {
-                return SS_INF_ROOTS;
+                return NUMBER_INF_ROOTS;
             }
             else
             {
@@ -142,16 +106,6 @@ int SquareSolver(double a, double b, double c, double *x1, double *x2)
     }
 }
 
-//------------------------------------------------
-//! Function checks if numbers are equal to zero.
-//!
-//! @param [in] number_check number_check - number to check if it is equal to zero
-//!
-//! @return True or False, if equal or not equal to zero
-//!
-//! @note Is a special case of the IsEqual function.
-//------------------------------------------------
-
 int IsEqual_zero(double number_check)
 {
     if (IsEqual(number_check, 0))
@@ -164,17 +118,6 @@ int IsEqual_zero(double number_check)
     }
 }
 
-//! Function checks if numbers are equal.
-//!
-//! @param [in] a_number_check a_number_check - one of the comparison numbers with the other
-//! @param [in] b_number_check b_number_check - one of the comparison numbers with the other
-//!
-//! @return True or False, if the numbers are equal or not equal to each other
-//!
-//! @note Checks if the difference between numbers is in the neighborhood of epsilon,
-//! that is, compares the modulus of the difference of two numbers with epsilon.
-//------------------------------------------------
-
 int IsEqual(double a_number_check, double b_number_check)
 {
     if (fabs(a_number_check - b_number_check) < eps)
@@ -186,17 +129,6 @@ int IsEqual(double a_number_check, double b_number_check)
         return 0;
     }
 }
-
-//------------------------------------------------
-//! The function checks the program for correctness 
-//! and doesn't allow the user to use the program, if it is played incorrectly.
-//!
-//!
-//! @return True or False if the program passed all the tests from the file correctly
-//!
-//! @note The function accesses the file and checks all tests from it for correctness.
-//! There are 4 types of tests in total: no roots, 1 root, 2 roots, an infinite number of roots.
-//------------------------------------------------
 
 int test()
 {
@@ -219,28 +151,28 @@ int test()
         ///inf roots
         switch(nRoots)
         {
-            case number_inf_roots: 
+            case NUMBER_INF_ROOTS: 
                     Full_result = test_type_check(a, b, c, nRoots,x1_right,x2_right, &x1, &x2);
                     if (!Full_result)
                     {
                         printf("ERROR: inf roots test fail\n");
                     }
                     break;
-            case number_no_roots:
+            case NUMBER_NO_ROOTS:
                     Full_result = test_type_check(a, b, c, nRoots,x1_right,x2_right, &x1, &x2);
                     if (!Full_result)
                     {
                         printf("ERROR: 0 roots test fail\n");
                     }
                     break;
-            case number_1_root:
+            case NUMBER_1_ROOT:
                     Full_result = test_type_check(a, b, c, nRoots,x1_right,x2_right, &x1, &x2);
                     if (!Full_result)
                     {
                         printf("ERROR: 1 roots test fail\n");
                     }
                     break;
-            case number_2_roots:
+            case NUMBER_2_ROOTS:
                     Full_result = test_type_check(a, b, c, nRoots,x1_right,x2_right, &x1, &x2);
                     if (!Full_result)
                     {
@@ -259,22 +191,7 @@ int test()
     
 }
 
-//------------------------------------------------
-//! The function is a helper for the test () function.
-//!
-//! @param [in] a a-coefficient
-//! @param [in] b b-coefficient
-//! @param [in] c c-coefficient
-//! @param [in] x1_right x1_right-correct answer for the first root x1
-//! @param [in] x2_right x2_right-correct answer for the second root x2
-//! @param [in] x1 Pointer to the 1st root
-//! @param [in] x2 Pointer to the 2nd root
-//!
-//!
-//! @return True or False if one of the examples in the equation passes the test correctly
-//!
-//! @note The function checks the example by checking the number of roots and comparing the resulting roots with the correct roots.
-//------------------------------------------------
+
 
 int test_type_check(int a, int b, int c, int nRoots, double x1_right, double x2_right, double *x1, double *x2)
 {

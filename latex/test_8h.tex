@@ -1,0 +1,68 @@
+\hypertarget{test_8h}{}\doxysection{test.\+h File Reference}
+\label{test_8h}\index{test.h@{test.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{test_8h_a8b2253f17aeec5a0b608f49a6da3fe35}{Test}} ()
+\item 
+int \mbox{\hyperlink{test_8h_ac6b471c0aa11687e9219fb45ba5722df}{test\+\_\+type\+\_\+check}} (double a, double b, double c, int n\+\_\+roots, double x1\+\_\+right, double x2\+\_\+right, double $\ast$x1, double $\ast$x2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{test_8h_a8b2253f17aeec5a0b608f49a6da3fe35}\label{test_8h_a8b2253f17aeec5a0b608f49a6da3fe35}} 
+\index{test.h@{test.h}!Test@{Test}}
+\index{Test@{Test}!test.h@{test.h}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}}
+{\footnotesize\ttfamily int Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The function checks the program for correctness and doesn\textquotesingle{}t allow the user to use the program, if it is played incorrectly.
+
+\begin{DoxyReturn}{Returns}
+True or False if the program passed all the tests from the file correctly
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function accesses the file and checks all tests from it for correctness. There are 4 types of tests in total\+: no roots, 1 root, 2 roots, an infinite number of roots. The variable x1 contains a root less than x2 and the variable x1\+\_\+right contains a root less than x2\+\_\+right. 
+\end{DoxyNote}
+test
+
+unit tests
+
+roots for solve
+
+needed flags
+
+inf roots
+
+\DoxyHorRuler{0}
+ end of test\mbox{\Hypertarget{test_8h_ac6b471c0aa11687e9219fb45ba5722df}\label{test_8h_ac6b471c0aa11687e9219fb45ba5722df}} 
+\index{test.h@{test.h}!test\_type\_check@{test\_type\_check}}
+\index{test\_type\_check@{test\_type\_check}!test.h@{test.h}}
+\doxysubsubsection{\texorpdfstring{test\_type\_check()}{test\_type\_check()}}
+{\footnotesize\ttfamily int test\+\_\+type\+\_\+check (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{int}]{n\+\_\+roots,  }\item[{double}]{x1\+\_\+right,  }\item[{double}]{x2\+\_\+right,  }\item[{double $\ast$}]{x1,  }\item[{double $\ast$}]{x2 }\end{DoxyParamCaption})}
+
+The function is a helper for the test () function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & a-\/coefficient \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & b-\/coefficient \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & c-\/coefficient \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1\+\_\+right} & x1\+\_\+right-\/correct answer for the first root x1 \\
+\hline
+\mbox{\texttt{ in}}  & {\em x2\+\_\+right} & x2\+\_\+right-\/correct answer for the second root x2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & Pointer to the 1st root \\
+\hline
+\mbox{\texttt{ in}}  & {\em x2} & Pointer to the 2nd root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False if one of the examples in the equation passes the test correctly
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function checks the example by checking the number of roots and comparing the resulting roots with the correct roots. The variable x1 contains a root less than x2 and the variable x1\+\_\+right contains a root less than x2\+\_\+right. 
+\end{DoxyNote}

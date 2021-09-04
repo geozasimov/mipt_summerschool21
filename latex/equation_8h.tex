@@ -1,0 +1,151 @@
+\hypertarget{equation_8h}{}\doxysection{equation.\+h File Reference}
+\label{equation_8h}\index{equation.h@{equation.h}}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{equation_8h_ab09c342de4279f5a52b93bb9df2aeee1}\label{equation_8h_ab09c342de4279f5a52b93bb9df2aeee1}} 
+enum {\bfseries Types\+Square\+Solver} \{ {\bfseries NUMBER\+\_\+\+INF\+\_\+\+ROOTS} = -\/1
+, {\bfseries NUMBER\+\_\+\+NO\+\_\+\+ROOTS} = 0
+, {\bfseries NUMBER\+\_\+1\+\_\+\+ROOT} = 1
+, {\bfseries NUMBER\+\_\+2\+\_\+\+ROOTS} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{equation_8h_a8edc4fa61fb814383859a502432261fc}{Square\+Solver}} (double a, double b, double c, double $\ast$x1, double $\ast$x2)
+\item 
+int \mbox{\hyperlink{equation_8h_a8225f96382992dffad996fb580cd08cc}{Print\+Roots}} (int n\+Roots, double x1, double x2)
+\item 
+int \mbox{\hyperlink{equation_8h_a2292d8144d0402ab0550ce2fae2297ea}{Is\+Equal}} (double a, double b)
+\item 
+int \mbox{\hyperlink{equation_8h_a8b2253f17aeec5a0b608f49a6da3fe35}{Test}} ()
+\item 
+int \mbox{\hyperlink{equation_8h_ac6b471c0aa11687e9219fb45ba5722df}{test\+\_\+type\+\_\+check}} (double a, double b, double c, int n\+\_\+roots, double x1\+\_\+right, double x2\+\_\+right, double $\ast$x1, double $\ast$x2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{equation_8h_a2292d8144d0402ab0550ce2fae2297ea}\label{equation_8h_a2292d8144d0402ab0550ce2fae2297ea}} 
+\index{equation.h@{equation.h}!IsEqual@{IsEqual}}
+\index{IsEqual@{IsEqual}!equation.h@{equation.h}}
+\doxysubsubsection{\texorpdfstring{IsEqual()}{IsEqual()}}
+{\footnotesize\ttfamily int Is\+Equal (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+Function checks if numbers are equal.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a\+\_\+number\+\_\+check} & a\+\_\+number\+\_\+check -\/ one of the comparison numbers with the other \\
+\hline
+\mbox{\texttt{ in}}  & {\em b\+\_\+number\+\_\+check} & b\+\_\+number\+\_\+check -\/ one of the comparison numbers with the other\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False, if the numbers are equal or not equal to each other
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Checks if the difference between numbers is in the neighborhood of epsilon, that is, compares the modulus of the difference of two numbers with epsilon. 
+\end{DoxyNote}
+\mbox{\Hypertarget{equation_8h_a8225f96382992dffad996fb580cd08cc}\label{equation_8h_a8225f96382992dffad996fb580cd08cc}} 
+\index{equation.h@{equation.h}!PrintRoots@{PrintRoots}}
+\index{PrintRoots@{PrintRoots}!equation.h@{equation.h}}
+\doxysubsubsection{\texorpdfstring{PrintRoots()}{PrintRoots()}}
+{\footnotesize\ttfamily int Print\+Roots (\begin{DoxyParamCaption}\item[{int}]{n\+Roots,  }\item[{double}]{x1,  }\item[{double}]{x2 }\end{DoxyParamCaption})}
+
+The function prints the result of the Square\+Solver function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Type\+Const\+SS} & Type\+Const\+SS-\/ coefficient indicating the type of situation when solving a quadratic equation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Based on Type\+Roots\+SS makes an inference for each situation. 
+\end{DoxyNote}
+\mbox{\Hypertarget{equation_8h_a8edc4fa61fb814383859a502432261fc}\label{equation_8h_a8edc4fa61fb814383859a502432261fc}} 
+\index{equation.h@{equation.h}!SquareSolver@{SquareSolver}}
+\index{SquareSolver@{SquareSolver}!equation.h@{equation.h}}
+\doxysubsubsection{\texorpdfstring{SquareSolver()}{SquareSolver()}}
+{\footnotesize\ttfamily int Square\+Solver (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{double $\ast$}]{x1,  }\item[{double $\ast$}]{x2 }\end{DoxyParamCaption})}
+
+Solves a square equation ax2 + bx + c = 0
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & a-\/coefficient \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & b-\/coefficient \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & c-\/coefficient \\
+\hline
+\mbox{\texttt{ out}}  & {\em x1} & Pointer to the 1st root \\
+\hline
+\mbox{\texttt{ out}}  & {\em x2} & Pointer to the 2nd root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of roots
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+In case of infinite number of roots, returns SS\+\_\+\+INF\+\_\+\+ROOTS. Function changes x1 and x2, if Number of roots is not zero. The variable x1 contains a root less than x2. 
+\end{DoxyNote}
+\mbox{\Hypertarget{equation_8h_a8b2253f17aeec5a0b608f49a6da3fe35}\label{equation_8h_a8b2253f17aeec5a0b608f49a6da3fe35}} 
+\index{equation.h@{equation.h}!Test@{Test}}
+\index{Test@{Test}!equation.h@{equation.h}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}}
+{\footnotesize\ttfamily int Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The function checks the program for correctness and doesn\textquotesingle{}t allow the user to use the program, if it is played incorrectly.
+
+\begin{DoxyReturn}{Returns}
+True or False if the program passed all the tests from the file correctly
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function accesses the file and checks all tests from it for correctness. There are 4 types of tests in total\+: no roots, 1 root, 2 roots, an infinite number of roots. The variable x1 contains a root less than x2 and the variable x1\+\_\+right contains a root less than x2\+\_\+right. 
+\end{DoxyNote}
+test
+
+unit tests
+
+roots for solve
+
+needed flags
+
+inf roots
+
+\DoxyHorRuler{0}
+ end of test\mbox{\Hypertarget{equation_8h_ac6b471c0aa11687e9219fb45ba5722df}\label{equation_8h_ac6b471c0aa11687e9219fb45ba5722df}} 
+\index{equation.h@{equation.h}!test\_type\_check@{test\_type\_check}}
+\index{test\_type\_check@{test\_type\_check}!equation.h@{equation.h}}
+\doxysubsubsection{\texorpdfstring{test\_type\_check()}{test\_type\_check()}}
+{\footnotesize\ttfamily int test\+\_\+type\+\_\+check (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{int}]{n\+\_\+roots,  }\item[{double}]{x1\+\_\+right,  }\item[{double}]{x2\+\_\+right,  }\item[{double $\ast$}]{x1,  }\item[{double $\ast$}]{x2 }\end{DoxyParamCaption})}
+
+The function is a helper for the test () function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & a-\/coefficient \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & b-\/coefficient \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & c-\/coefficient \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1\+\_\+right} & x1\+\_\+right-\/correct answer for the first root x1 \\
+\hline
+\mbox{\texttt{ in}}  & {\em x2\+\_\+right} & x2\+\_\+right-\/correct answer for the second root x2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & Pointer to the 1st root \\
+\hline
+\mbox{\texttt{ in}}  & {\em x2} & Pointer to the 2nd root\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False if one of the examples in the equation passes the test correctly
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function checks the example by checking the number of roots and comparing the resulting roots with the correct roots. The variable x1 contains a root less than x2 and the variable x1\+\_\+right contains a root less than x2\+\_\+right. 
+\end{DoxyNote}

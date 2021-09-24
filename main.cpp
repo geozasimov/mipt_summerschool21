@@ -4,7 +4,7 @@
 
 #include "equation.h"
 #include "test.h"
-
+//danya loh
 const static double NUMBER_GOOD_COEFF = 3;
 
 int main()
